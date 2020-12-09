@@ -29,3 +29,13 @@ class Medal(models.Model):
 
     def __str__(self):
         return self.type
+
+
+class Athlete(models.Model):
+    name = models.CharField(max_length=100)
+    sex = models.CharField(max_length=1)
+    height = models.CharField(max_length=3)
+    weight = models.CharField(max_length=3)
+
+    def __srt__(self):
+        return self.name
