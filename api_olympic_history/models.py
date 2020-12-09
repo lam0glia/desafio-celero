@@ -22,3 +22,10 @@ class Event(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Medal(models.Model):
+    type = models.CharField(max_length=6)
+
+    def __str__(self):
+        return self.type
