@@ -39,3 +39,10 @@ class Athlete(models.Model):
 
     def __srt__(self):
         return self.name
+
+
+class AthleteEvent(models.Model):
+    athlete = models.ForeignKey(Athlete, on_delete=models.CASCADE)
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
+    medal = models.ForeignKey(Medal, on_delete=models.CASCADE)
