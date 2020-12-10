@@ -27,7 +27,7 @@ router.register(r'athletes', AthleteViewSet)
 router.register(r'regions', RegionViewSet)
 router.register(r'nocs', NocViewSet)
 router.register(r'teams', TeamViewSet)
-router.register(r'athlete-events', AthleteEventViewSet)
+router.register(r'athleteevents', AthleteEventViewSet)
 
 
 urlpatterns = [
