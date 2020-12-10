@@ -3,7 +3,7 @@
 Tecnologias
 ------
 * `SQLite` como banco de dados;
-* `Django REST framework` para criar as respostas e solicitações da API;
+* `Django REST framework` para realizar as requisições e solicitações para a API;
 
 
 ### Índice
