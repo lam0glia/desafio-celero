@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from api_olympic_history.views import GameViewSet, SportViewSet, EventViewSet, MedalViewSet, AthleteViewSet, RegionViewSet, AthleteEventViewSet
+from api_olympic_history.views import GameViewSet, SportViewSet, EventViewSet, MedalViewSet, AthleteViewSet, RegionViewSet, NocViewSet, AthleteEventViewSet
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -25,6 +25,7 @@ router.register(r'events', EventViewSet)
 router.register(r'medals', MedalViewSet)
 router.register(r'athletes', AthleteViewSet)
 router.register(r'regions', RegionViewSet)
+router.register(r'nocs', NocViewSet)
 router.register(r'athlete-events', AthleteEventViewSet)
 
 
