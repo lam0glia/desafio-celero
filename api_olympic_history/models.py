@@ -28,7 +28,7 @@ class Medal(models.Model):
     type = models.CharField(max_length=6, null=True)
 
     def __str__(self):
-        return self.type
+        return "%s" % (self.type)
 
 
 class Athlete(models.Model):
@@ -49,7 +49,12 @@ class Region(models.Model):
 
 class Noc(models.Model):
     flag = models.CharField(max_length=3)
-    region = models.ForeignKey(Region, on_delete=models.CASCADE, null=True)
+    region = models.ForeignKey(
+        Region,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=False
+    )
 
     def __str__(self):
         return self.flag
