@@ -69,6 +69,9 @@ class AthleteEvent(models.Model):
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     medal = models.ForeignKey(Medal, on_delete=models.CASCADE)
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
-    athlete_height = models.IntegerField(null=True)
-    athlete_weight = models.FloatField(null=True)
-    athlete_age = models.IntegerField(null=True)
+    athlete_height = models.CharField(max_length=3, null=True)
+    athlete_weight = models.CharField(max_length=5, null=True)
+    athlete_age = models.CharField(max_length=3, null=True)
+
+    def __str__(self):
+        return self.athlete_age
