@@ -25,7 +25,7 @@ class Event(models.Model):
 
 
 class Medal(models.Model):
-    type = models.CharField(max_length=6)
+    type = models.CharField(max_length=6, null=True)
 
     def __str__(self):
         return self.type
@@ -34,16 +34,14 @@ class Medal(models.Model):
 class Athlete(models.Model):
     name = models.CharField(max_length=100)
     sex = models.CharField(max_length=1)
-    height = models.CharField(max_length=3)
-    weight = models.CharField(max_length=3)
 
     def __srt__(self):
         return self.name
 
 
 class Region(models.Model):
-    name = models.CharField(max_length=100)
-    note = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, null=True)
+    note = models.CharField(max_length=100, null=True, blank=True)
 
     def __self(self):
         return self.name
@@ -51,7 +49,7 @@ class Region(models.Model):
 
 class Noc(models.Model):
     flag = models.CharField(max_length=3)
-    region = models.ForeignKey(Region, on_delete=models.CASCADE)
+    region = models.ForeignKey(Region, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.flag
@@ -71,3 +69,9 @@ class AthleteEvent(models.Model):
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     medal = models.ForeignKey(Medal, on_delete=models.CASCADE)
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
+    athlete_height = models.CharField(max_length=3, null=True)
+    athlete_weight = models.CharField(max_length=5, null=True)
+    athlete_age = models.CharField(max_length=3, null=True)
+
+    def __str__(self):
+        return self.athlete_age
