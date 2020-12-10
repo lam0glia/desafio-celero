@@ -42,7 +42,7 @@ class Athlete(models.Model):
 
 
 class Region(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, blank=True)
     note = models.CharField(max_length=100, blank=True)
 
     def __self(self):
