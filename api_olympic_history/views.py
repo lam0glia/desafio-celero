@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Game, Sport, Event, Medal, Athlete, AthleteEvent
-from .serializers import GameSerializer, SportSerializer, EventSerializer, MedalSerializer, AthleteSerializer, AthleteEventSerializer
+from .models import Game, Sport, Event, Medal, Athlete, Region, AthleteEvent
+from .serializers import GameSerializer, SportSerializer, EventSerializer, MedalSerializer, AthleteSerializer, RegionSerializer, AthleteEventSerializer
 
 
 class GameViewSet(viewsets.ModelViewSet):
@@ -27,6 +27,10 @@ class AthleteViewSet(viewsets.ModelViewSet):
     queryset = Athlete.objects.all()
     serializer_class = AthleteSerializer
 
+
+class RegionViewSet(viewsets.ModelViewSet):
+    queryset = Region.objects.all()
+    serializer_class = RegionSerializer
 
 class AthleteEventViewSet(viewsets.ModelViewSet):
     queryset = AthleteEvent.objects.all()
