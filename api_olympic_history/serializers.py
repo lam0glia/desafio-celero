@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Game, Sport, Event, Medal, Athlete, Region, Noc,AthleteEvent
+from .models import Game, Sport, Event, Medal, Athlete, Region, Noc, Team, AthleteEvent
 
 
 class GameSerializer(serializers.ModelSerializer):
@@ -45,6 +45,11 @@ class NocSerializer(serializers.ModelSerializer):
         model = Noc
         fields = '__all__'
 
+
+class TeamSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Team
+        fields = '__all__'
 
 class AthleteEventSerializer(serializers.ModelSerializer):
     class Meta:
