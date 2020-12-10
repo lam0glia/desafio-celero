@@ -14,8 +14,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from api_olympic_history.views import GameViewSet, SportViewSet, EventViewSet, MedalViewSet, AthleteViewSet, AthleteEventViewSet
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'games', GameViewSet)
+router.register(r'sports', SportViewSet)
+router.register(r'events', EventViewSet)
+router.register(r'medals', MedalViewSet)
+router.register(r'athletes', AthleteViewSet)
+router.register(r'athlete-events', AthleteEventViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include(router.urls)),
 ]
