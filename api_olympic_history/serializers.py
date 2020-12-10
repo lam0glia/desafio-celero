@@ -15,10 +15,11 @@ class SportSerializer(serializers.ModelSerializer):
 
 
 class EventSerializer(serializers.ModelSerializer):
+    sport = SportSerializer()
 
     class Meta:
         model = Event
-        fields = '__all__'
+        fields = ['id', 'name', 'sport']
 
 
 class MedalSerializer(serializers.ModelSerializer):
@@ -41,17 +42,36 @@ class RegionSerializer(serializers.ModelSerializer):
 
 
 class NocSerializer(serializers.ModelSerializer):
+    region = RegionSerializer()
+
     class Meta:
         model = Noc
-        fields = '__all__'
+        fields = ['id', 'flag', 'region']
 
 
 class TeamSerializer(serializers.ModelSerializer):
+    noc = NocSerializer()
+
     class Meta:
         model = Team
-        fields = '__all__'
+        fields = ['id', 'name', 'noc']
+
 
 class AthleteEventSerializer(serializers.ModelSerializer):
+    game = GameSerializer()
+    event = EventSerializer()
+    athlete = AthleteSerializer()
+    team = TeamSerializer()
+
     class Meta:
         model = AthleteEvent
-        fields = '__all__'
+        fields = [
+            'id',
+            'game',
+            'event',
+            'athlete',
+            'team',
+            'athlete_height',
+            'athlete_weight',
+            'athlete_age'
+        ]
